@@ -1,6 +1,16 @@
-<%- include("header"); -%>
+<%- include("include/header"); -%>
 
 <h1>Home</h1>
 <P> <%= startingContent %> </P>
 
-<%- include("footer"); -%>
+<% posts.forEach(post => { %>
+<section>
+  <h1><%= post.title %></h1>
+  <p>
+    <%= post.content.substring(0, 100) + " ..." %>
+    <a href="/posts/ <%= post.title %>">Read more</a>
+  </p>
+</section>
+<% }); %> 
+
+<%- include("include/footer"); -%>
